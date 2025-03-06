@@ -57,50 +57,50 @@ export default function PdfUpload() {
             <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
                 Sube tu PDF y comienza a hacer preguntas al instante. Obtén respuestas precisas con citaciones de fuentes.
             </p>
-<div>
-            <Uploady
-                destination={{ url: "/api/upload" }}
-                fileFilter={({ file }) => file.type === "application/pdf"}
-                maxFileSize={10 * 1024 * 1024}
-                multiple // Habilita la carga múltiple
-                listeners={{
-                    ITEM_PROGRESS: handleUploadProgress,
-                    ITEM_SUCCESS: handleUploadSuccess,
-                    ITEM_ERROR: handleUploadError,
-                }}
-            >
-                {/* <div className="max-w-xl mx-auto px-4">
-                    <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-primary transition-colors">
-                        <FaCloudUploadAlt className="mx-auto text-5xl text-gray-400 mb-4" />
-                        <p className="text-lg text-gray-600">
-                            Arrastra y suelta tus archivos PDF aquí o
-                            <UploadButton className="text-primary font-medium ml-1">
-                                selecciona archivos
-                            </UploadButton>
-                        </p>
-                        <p className="text-sm text-gray-500 mt-2">
-                            Tamaño máximo por archivo: 10MB
-                        </p>
-                    </div>
-                    {selectedFiles.length > 0 && (
-                        <div className="mt-4">
-                            <ul>
-                                {selectedFiles.map((file) => (
-                                    <li key={file.id}>
-                                        <p>Archivo seleccionado: {file.name}</p>
-                                        {progress[file.id] > 0 && (
-                                            <div className="mt-2">
-                                                <ProgressBar now={progress[file.id]} label={`${progress[file.id]}%`} />
-                                            </div>
-                                        )}
-                                    </li>
-                                ))}
-                            </ul>
+            <div>
+                <Uploady
+                    destination={{ url: "/api/upload" }}
+                    fileFilter={({ file }) => file.type === "application/pdf"}
+                    maxFileSize={10 * 1024 * 1024}
+                    multiple // Habilita la carga múltiple
+                    listeners={{
+                        ITEM_PROGRESS: handleUploadProgress,
+                        ITEM_SUCCESS: handleUploadSuccess,
+                        ITEM_ERROR: handleUploadError,
+                    }}
+                >
+                    <div className="max-w-xl mx-auto px-4">
+                        <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-primary transition-colors">
+                            <FaCloudUploadAlt className="mx-auto text-5xl text-gray-400 mb-4" />
+                            <p className="text-lg text-gray-600">
+                                Arrastra y suelta tus archivos PDF aquí o
+                                <UploadButton className="text-primary font-medium ml-1">
+                                    selecciona archivos
+                                </UploadButton>
+                            </p>
+                            <p className="text-sm text-gray-500 mt-2">
+                                Tamaño máximo por archivo: 10MB
+                            </p>
                         </div>
-                    )}
-                    <UploadPreview previewComponentProps={{ showLoader: true }} />
-                </div> */}
-            </Uploady>
+                        {selectedFiles.length > 0 && (
+                            <div className="mt-4">
+                                <ul>
+                                    {selectedFiles.map((file) => (
+                                        <li key={file.id}>
+                                            <p>Archivo seleccionado: {file.name}</p>
+                                            {progress[file.id] > 0 && (
+                                                <div className="mt-2">
+                                                    <ProgressBar now={progress[file.id]} label={`${progress[file.id]}%`} />
+                                                </div>
+                                            )}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        )}
+                        <UploadPreview previewComponentProps={{ showLoader: true }} />
+                    </div>
+                </Uploady>
             </div>
         </div>
     );
